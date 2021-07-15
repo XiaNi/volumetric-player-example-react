@@ -4,7 +4,7 @@
 
 body {
   --text-color: #222;
-  --bkg-color: #fff;
+  --bkg-color: #888;
   --shadow-color: rgba(0, 0, 0, 0.47);
 }
 
@@ -37,7 +37,7 @@ button {
   font-size: calc(10px + 2vmin);
 }
 
-button.player-toggle, button.player-play {
+button.player-toggle, button.player-play, button.player-one-frame {
   position: absolute;
   top: 0;
   right: 0;
@@ -47,6 +47,11 @@ button.player-toggle, button.player-play {
 button.player-play {
   right: 200px;
 }
+
+button.player-one-frame {
+  right: 300px;
+}
+
 
 .buffering-indication {
   position: absolute;
@@ -61,6 +66,14 @@ button.player-play {
   font-size: 19px;
   font-weight: 500;
   background: var(--bkg-color);
+}
+
+.buffering-indication-top {
+  position: absolute;
+  top:0;
+  left: 0;
+  font-size: 19px;
+  font-weight: 500;
 }
 
 .actorCanvas, .counterCanvas {

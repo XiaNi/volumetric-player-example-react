@@ -10,7 +10,7 @@
     "react-dom": "^17.0.0",
     "three": "0.128.0",
     "three-stdlib": "^2.1.0",
-    "volumetric": "https://github.com/XRFoundation/UniversalVolumetric"
+    "volumetric": "git://github.com/XiaNi/UniversalVolumetric.git#7b2a9193d6fd03ddd4df99da85572cb4deeabeb7"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

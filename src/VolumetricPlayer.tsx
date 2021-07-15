@@ -212,12 +212,23 @@ const VolumetricPlayer = (props:VolumetricPlayerProps) => {
     }
   }
 
-  const playButton = playIsStarted ? null : <button onTouchEnd={() => startPlayer()} onClick={() => startPlayer()} className={"button player-play"}>{videoReady ? "Play" : "Loading..."}</button>;
+  function advanceOneFrame() {
+    console.log('advanceOneFrame');
+    if (videoReady && dracosisSequence) {
+      dracosisSequence.playOneFrame();
+    }
+  }
+
+  const playButton = <button onTouchEnd={() => startPlayer()} onClick={() => startPlayer()} className={"button player-play"}>{videoReady ? "Play" : "Loading..."}</button>;
+  const oneFrameButton = <button onTouchEnd={() => advanceOneFrame()} onClick={() => advanceOneFrame()} className={"button player-one-frame"}>{videoReady ? "One frame" : "Loading..."}</button>;
   const bufferingIndication = playIsStarted && isBuffering ? <div className={"buffering-indication"}>Buffering...</div> : null;
+  const buffering2Indication = isBuffering ? <div className={"buffering-indication-top"}>Buffering...</div> : null;
 
   return <div className="volumetric__player" style={props.style} ref={containerRef}>
     {playButton}
+    {oneFrameButton}
     {bufferingIndication}
+    {buffering2Indication}
     <canvas
       ref={canvasRef}
       className={"mainCanvas"}
