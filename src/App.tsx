@@ -20,10 +20,10 @@ function App() {
       <button
         className={"button player-toggle"}
         onClick={() => setPlayerVisible(!playerVisible)}>{playerVisible? "off" : "on"}</button>
-      {!playerVisible ? null : <VolumetricPlayer
-        manifestFilePath={"http://localhost/example.manifest"}
-        meshFilePath={"http://localhost/example.drcs"}
-        videoFilePath={"http://localhost/example.mp4"}
+      {(!playerSourcesAreValid || !playerVisible) ? null : <VolumetricPlayer
+        manifestFilePath={manifestFilePath}
+        meshFilePath={meshFilePath}
+        videoFilePath={videoFilePath}
         style={{ position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh'}}
       />}
     </div>
