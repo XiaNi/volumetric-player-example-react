@@ -5,9 +5,18 @@ import VolumetricPlayer from "./VolumetricPlayer";
 
 function App() {
   const [playerVisible, setPlayerVisible] = useState(false)
+  const [playerSources, setPlayerSources] = useState("")
+
+  const [ manifestFilePath, meshFilePath, videoFilePath ] = playerSources
+    .replaceAll("\r", "")
+    .split("\n").map(v => v.trim());
+
+
+  const playerSourcesAreValid = manifestFilePath && meshFilePath && videoFilePath
 
   return (
     <div className="App">
+      {!playerVisible ? <textarea onChange={event => setPlayerSources(event.target.value)} /> : null}
       <button
         className={"button player-toggle"}
         onClick={() => setPlayerVisible(!playerVisible)}>{playerVisible? "off" : "on"}</button>
